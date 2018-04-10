@@ -28,14 +28,14 @@ class Trainer(object):
 
     def __init__(self, args, model, criterion):
 
-        if not torch.cuda.is_available():
-            raise NotImplementedError('Training on CPU is not supported')
+        #if not torch.cuda.is_available():
+        #    raise NotImplementedError('Training on CPU is not supported')
 
         self.args = args
 
         # copy model and criterion to current device
-        self.model = model.cuda()
-        self.criterion = criterion.cuda()
+        #self.model = model.cuda()
+        #self.criterion = criterion.cuda()
 
         # initialize optimizer and LR scheduler
         self.optimizer = optim.build_optimizer(self.args, self.model.parameters())

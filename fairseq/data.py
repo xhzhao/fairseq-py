@@ -399,6 +399,7 @@ def shuffled_batches_by_size(src, dst, max_tokens=None, max_sentences=None,
 
 
 def mask_batches(batch_sampler, shard_id, num_shards):
+    num_shards = 1
     if num_shards == 1:
         return batch_sampler
     res = [

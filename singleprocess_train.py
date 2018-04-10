@@ -20,9 +20,9 @@ from fairseq.trainer import Trainer
 def main(args):
     print(args)
 
-    if not torch.cuda.is_available():
-        raise NotImplementedError('Training on CPU is not supported')
-    torch.cuda.set_device(args.device_id)
+    #if not torch.cuda.is_available():
+    #    raise NotImplementedError('Training on CPU is not supported')
+    #torch.cuda.set_device(args.device_id)
     torch.manual_seed(args.seed)
 
     # Load dataset
@@ -58,7 +58,7 @@ def main(args):
     # Load the latest checkpoint if one is available
     os.makedirs(args.save_dir, exist_ok=True)
     checkpoint_path = os.path.join(args.save_dir, args.restore_file)
-    extra_state = trainer.load_checkpoint(checkpoint_path)
+    extra_state = None #trainer.load_checkpoint(checkpoint_path)
     if extra_state is not None:
         epoch = extra_state['epoch']
         batch_offset = extra_state['batch_offset']
