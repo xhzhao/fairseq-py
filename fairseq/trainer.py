@@ -34,8 +34,8 @@ class Trainer(object):
         self.args = args
 
         # copy model and criterion to current device
-        #self.model = model.cuda()
-        #self.criterion = criterion.cuda()
+        self.model = model #.cuda()
+        self.criterion = criterion #.cuda()
 
         # initialize optimizer and LR scheduler
         self.optimizer = optim.build_optimizer(self.args, self.model.parameters())
